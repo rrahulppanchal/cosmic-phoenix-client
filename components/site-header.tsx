@@ -8,6 +8,8 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+import { DropdownMenuNotification } from "./notification-dropdown"
+import { DropdownMenuProfile } from "./profile-header-dropdown"
 import { SidebarToggle } from "./sidebar-toggle"
 
 export function SiteHeader() {
@@ -18,37 +20,20 @@ export function SiteHeader() {
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link href={siteConfig.links.twitter} rel="noreferrer">
               <div
                 className={buttonVariants({
                   size: "icon",
                   variant: "ghost",
                 })}
               >
-                <Icons.gitHub className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
-            <Link
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.twitter className="h-5 w-5 fill-current" />
+                <Icons.settings className="h-5 w-5 " />
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
+            <DropdownMenuNotification />
             <ThemeToggle />
+            <DropdownMenuProfile />
           </nav>
         </div>
       </div>
